@@ -1,0 +1,41 @@
+:root{
+    --tui-cyan: #8cdaff;
+}
+.menubar-menu-button::before{
+    content: '[';
+}
+.menubar-menu-button::after{
+    content: ']';
+}
+.menubar-menu-button{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.menubar-menu-title{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.tab-border-top-container{
+    top:32px!important;
+    background-color:var(--tui-cyan)!important;
+}
+.editor{ 
+    border: var(--tui-cyan) solid 2px;
+    height: 92vh;
+}
+.view-line, .monaco-editor{
+    font-family: 'Monofur Nerd Font', monospace!important;
+}
+.editor, .terminal, a.action-label:not(.codicon){
+    font-family: 'Monofur Nerd Font', monospace!important;
+    font-size: 12px;
+}
+
+div[id="workbench.parts.panel"] .split-view-view{
+    border: none!important;
+}
+/* Aire alrededor de los paneles */
+div.monaco-grid-view > .monaco-grid-branch-node >.monaco-split-view2.vertical >div.monaco-scrollable-element > div.split-view-container > div.split-view-view.visible{
+    border: black solid 2px!important;
+}
