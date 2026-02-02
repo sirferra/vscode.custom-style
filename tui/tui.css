@@ -1,6 +1,10 @@
 :root{
     --tui-cyan: #8cdaff;
+    --tui-magenta: rgb(255, 0, 98);
+    --tui-gray: #303030;
+    --font: 'Monofur Nerd Font', monospace;
 }
+
 .menubar-menu-button::before{
     content: '[';
 }
@@ -20,22 +24,84 @@
     top:32px!important;
     background-color:var(--tui-cyan)!important;
 }
-.editor{ 
-    border: var(--tui-cyan) solid 2px;
-    height: 92vh;
-}
+
+/** Fontfamily */ 
 .view-line, .monaco-editor{
-    font-family: 'Monofur Nerd Font', monospace!important;
+    font-family: var(--font)!important;
 }
+
+/** Font and size */
 .editor, .terminal, a.action-label:not(.codicon){
-    font-family: 'Monofur Nerd Font', monospace!important;
+    font-family: var(--font)!important;
     font-size: 12px;
 }
 
 div[id="workbench.parts.panel"] .split-view-view{
     border: none!important;
 }
+
 /* Aire alrededor de los paneles */
 div.monaco-grid-view > .monaco-grid-branch-node >.monaco-split-view2.vertical >div.monaco-scrollable-element > div.split-view-container > div.split-view-view.visible{
     border: black solid 2px!important;
 }
+
+.split-view-container, .tab.tab-actions-right{
+    background: black !important;
+}
+
+.part.editor:has(.focused),.part.basepanel.bottom:has(.focus){ 
+    border: var(--tui-cyan) solid 2px!important;
+    transition: border 0.2s ease-in-out;
+}
+
+.part.editor,.part.basepanel.bottom{ 
+    border: var(--tui-gray) solid 2px!important;
+    transition: border 0.2s ease-in;
+}
+
+
+.part.editor,.part.basepanel.bottom{
+    height: 98.99%;
+    width: 99.2%;
+}
+.part.basepanel.bottom{
+    height: 97%;
+}
+.split-view-view.visible:has(div.editor), .split-view-view.visible:has(div.basepanel.bottom){
+    padding-top: 2px!important;
+}
+
+.split-view-view.visible:has(>.monaco-grid-branch-node>.monaco-split-view2.horizontal>.monaco-scrollable-element>.split-view-container>.split-view-view.visible>.part.editor)::before{
+    content: 'editor';
+    position: absolute;
+    margin-top: -7px;
+    margin-left: 30px;
+    background-color: black;
+    padding: 3px 5px;
+    z-index: 99;
+    font-family: var(--font)!important;
+    font-size: 12px;
+}
+.split-view-view.visible:has(>.part.panel.basepanel>.composite)::before{
+    content: 'button-panel';
+    position: absolute;
+    margin-top: -7px;
+    margin-left: 30px;
+    background-color: black;
+    padding: 3px 5px;
+    z-index: 99;
+    font-family: var(--font)!important;
+    font-size: 12px;
+}
+
+
+.monaco-sash.horizontal.active, .monaco-sash.vertical.active{
+    margin-top: -2px;
+    background-color: var(--tui-cyan) !important;
+    box-shadow: var(--tui-magenta) -1px 1px 6px 1px !important;
+    opacity: 1;
+}
+.monaco-sash.horizontal.active::before, .monaco-sash.vertical.active::before{
+    background-color:  var(--tui-magenta) !important;
+}
+
